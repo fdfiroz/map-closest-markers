@@ -2,23 +2,16 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
-import { icon } from 'leaflet';
+import { myIcon, otherIcon } from '@/utils/icone-utils';
 
 
-const myIcon = icon({
-  iconUrl: '/myMark.png',
-  iconSize: [30, 35], // Optional: Set icon size
-});
-const otherIcon = icon({
-  iconUrl: '/mark.png',
-  iconSize: [20, 35], // Optional: Set icon size
-});
+
+
 const MapComponent = ({ userLocation, markers, onMarkerDragEnd }) => {
   const [position, setPosition] = useState({lat: 23.7507363, lng: 90.3877155});
-  console.log(userLocation);
+
   const handleDragEnd = (e) => {
     const latLng = e.target.getLatLng();
-    console.log(latLng)
     setPosition(latLng);
     onMarkerDragEnd(latLng);
   };

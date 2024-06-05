@@ -34,6 +34,7 @@ export default function Home() {
   const handleMarkerDragEnd = (latLng) => {
     setUserLocation(latLng);
     updateClosestMarkers(latLng);
+
   };
 
   const updateClosestMarkers = (location) => {
@@ -46,7 +47,7 @@ export default function Home() {
   };
   return (
     <div className="p-4">
-       <LocationInput onLocationSubmit={handleLocationSubmit} />
+       <LocationInput onLocationSubmit={handleLocationSubmit} userLocation={userLocation}/>
        <div className='flex flex-row-reverse justify-evenly items-center'>
         <MapComponent
           userLocation={userLocation}

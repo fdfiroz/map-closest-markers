@@ -3,11 +3,19 @@ import getAddressLatLng from '@/utils/getAddressLatLng';
 import getLatLngToAddress from '@/utils/getLatLngToAddress';
 import { useEffect, useState } from 'react';
 
-const LocationInput = ({ onLocationSubmit }) => {
+const LocationInput = ({userLocation, onLocationSubmit }) => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [address, setAddress] = useState(''); // Add this line
+  const [address, setAddress] = useState('');
 
+  useEffect(() => {
+    getLatLngToAddress(userLocation.lat, userLocation.lng)
+    .then((address) => {
+      console.log(address);
+      setAddress(address);
+    }
+    );
+  }, [userLocation.lat, userLocation.lng]);
   const handleSubmit = (e) => {
     e.preventDefault();
     getAddressLatLng(address).then((location) => {

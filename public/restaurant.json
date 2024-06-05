@@ -1,0 +1,7 @@
+[
+    { "id": 1, "img": "/CafeLiveFood.png", "rating": 4.5, "takeaway": true, "dinein": true },
+    { "id": 2, "img": "/YummTatsteTic.png", "rating": 4.0, "takeaway": true, "dinein": false },
+    { "id": 3, "img": "/BFC.jpg", "rating": 3.5, "takeaway": true, "dinein": true },
+    { "id": 4, "img": "/AnandaRestaurant.jpg", "rating": 4.2, "takeaway": false, "dinein": true },
+    { "id": 5, "img": "/GreenChilliRestaurant.jpg", "rating": 4.7, "takeaway": true, "dinein": true }
+  ]

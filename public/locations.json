@@ -1,10 +1,10 @@
 [
-    { "id": 1, "name": "Cafe Live Food", "latitude": 23.7504424, "longitude": 90.3872549 },
+    { "id": 1, "name": "Cafe Live Food",  "latitude": 23.7504424, "longitude": 90.3872549 },
     { "id": 2, "name": "Yumm TatsteTic", "latitude": 23.7510052, "longitude": 90.3849389 },
     { "id": 3, "name": "BFC", "latitude": 23.7513883, "longitude": 90.3836982 },
     { "id": 4, "name": "Ananda Restaurant & Mini Chinese", "latitude": 23.7513883, "longitude": 90.3836982 },
-    { "id": 5, "name": "Auto Craft", "latitude": 23.7506676, "longitude": 90.3870085 }
-    
+    { "id": 5, "name": "Green Chilli Restaurant","latitude": 23.7506676, "longitude": 90.3870085 }
+
     
   ]
   

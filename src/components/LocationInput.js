@@ -64,7 +64,7 @@ const LocationInput = ({userLocation, onLocationSubmit }) => {
     fetchData();
   }, []);
   return (
-    <form className='flex justify-stretch items-center' onSubmit={handleSubmit}>
+    <form className='flex justify-stretch items-center gap-3' onSubmit={handleSubmit}>
       <input
       className='text-black border p-2 rounded-3xl'
         type="text"
@@ -74,7 +74,7 @@ const LocationInput = ({userLocation, onLocationSubmit }) => {
         required
       />
       
-      <button className='p-2 rounded-3xl border' type="submit">Submit</button>
+      <button className='p-2 rounded-3xl border focus:border hover:border' type="submit">Submit</button>
     </form>
   );
 };

@@ -48,13 +48,13 @@ export default function Home() {
   return (
     <div className="p-4">
        <LocationInput onLocationSubmit={handleLocationSubmit} userLocation={userLocation}/>
-       <div className='flex flex-row-reverse justify-evenly items-center'>
+       <div className='flex justify-evenly items-center'>
+         <ClosestMarkers userLocation={userLocation} locations={locations} />
         <MapComponent
           userLocation={userLocation}
           markers={markers}
           onMarkerDragEnd={handleMarkerDragEnd}
         />
-        <ClosestMarkers userLocation={userLocation} locations={locations} />
       </div>
     </div>
     

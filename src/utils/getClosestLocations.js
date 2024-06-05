@@ -10,7 +10,7 @@ const getClosestLocations = (userLocation, locations, radius = 300) => {
   }, []);
 
   withinRange.sort((a, b) => a.distance - b.distance);
-  console.log(withinRange);
+  // console.log(withinRange);
   return withinRange.slice(0, 5);
 };
 

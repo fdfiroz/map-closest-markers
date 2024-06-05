@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/PageHome": ["./src/components/PageHome.jsx"] // Add the missing file to the include pattern
     }
   }
 }

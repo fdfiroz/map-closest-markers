@@ -15,7 +15,7 @@ async function getAddressLatLng(address) {
       return {}; // Handle empty results
     }
   } catch (error) {
-    console.error('Error fetching geolocation:', error);
+    // console.error('Error fetching geolocation:', error);
     return null;
   }
 

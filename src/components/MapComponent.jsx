@@ -22,8 +22,8 @@ const MapComponent = ({ userLocation, markers, onMarkerDragEnd }) => {
   const handleMapClick = (e) => {
     setPosition(e.latlng);
     // You can perform additional actions here, such as updating state or displaying information
-    console.log("Clicked Latitude:", e.latlng.lat);
-    console.log("Clicked Longitude:", e.latlng.lng);
+    // console.log("Clicked Latitude:", e.latlng.lat);
+    // console.log("Clicked Longitude:", e.latlng.lng);
   };
 
   useEffect(() => {setPosition(userLocation)}, [userLocation]);

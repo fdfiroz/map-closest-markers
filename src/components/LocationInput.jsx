@@ -14,11 +14,11 @@ const LocationInput = ({userLocation, onLocationSubmit }) => {
       try {
         const address = await getLatLngToAddress(userLocation.lat, userLocation.lng);
         if (isMounted) {
-          console.log(address);
+          // console.log(address);
           setAddress(address);
         }
       } catch (error) {
-        console.error('Error fetching address:', error);
+        // console.error('Error fetching address:', error);
       }
     };
     fetchData();
@@ -30,11 +30,11 @@ const LocationInput = ({userLocation, onLocationSubmit }) => {
     e.preventDefault();
     getAddressLatLng(address).then((location) => {
       if (location) {
-        console.log(location);
+        // console.log(location);
         setLatitude(location.latitude);
         setLongitude(location.longitude);
       } else {
-        console.error('Error fetching location:', address);
+        // console.error('Error fetching location:', address);
       }
     });
     onLocationSubmit({ lat: parseFloat(latitude), lng: parseFloat(longitude) });
@@ -54,11 +54,11 @@ const LocationInput = ({userLocation, onLocationSubmit }) => {
             setAddress(address);
           });
         }, (error) => {
-          console.error('Error fetching location:', error);
+          // console.error('Error fetching location:', error);
           alert('Error fetching location:', error);
         });
       } else {
-        console.warn('Geolocation is not supported by this browser.');
+        // console.warn('Geolocation is not supported by this browser.');
       }
     }
     fetchData();

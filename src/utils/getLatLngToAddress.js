@@ -14,7 +14,7 @@ async function getLatLngToAddress(lat, lng) {
       return null; // Handle empty results
     }
   } catch (error) {
-    console.error('Error fetching address:', error);
+    // console.error('Error fetching address:', error);
     return null;
   }
 }

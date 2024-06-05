@@ -17,11 +17,11 @@ const PageHome = () => {
           setUserLocation({ lat: latitude, lng: longitude });
           
         }, (error) => {
-          console.error('Error fetching location:', error);
+          // console.error('Error fetching location:', error);
           alert('Error fetching location:', error);
         });
       } else {
-        console.warn('Geolocation is not supported by this browser.');
+        // console.warn('Geolocation is not supported by this browser.');
       }
     }
     fetchData();

@@ -1,0 +1,11 @@
+[
+    { "id": 1, "name": "Location A", "latitude": 40.712776, "longitude": -74.005974 },
+    { "id": 2, "name": "Location B", "latitude": 34.052235, "longitude": -118.243683 },
+    { "id": 3, "name": "Location C", "latitude": 51.507351, "longitude": -0.127758 },
+    { "id": 4, "name": "Location D", "latitude": 48.856613, "longitude": 2.352222 },
+    { "id": 5, "name": "Location E", "latitude": 55.755826, "longitude": 37.617300 },
+    { "id": 5, "name": "Auto Craft", "latitude": 23.7506676, "longitude": 90.3870085 }
+
+    
+  ]
+  

@@ -13,40 +13,50 @@ const LocationInput = ({ onLocationSubmit }) => {
     getAddressLatLng(address).then((location) => {
       if (location) {
         console.log(location);
+        setLatitude(location.latitude);
+        setLongitude(location.longitude);
       } else {
         console.error('Error fetching location:', address);
       }
     });
     onLocationSubmit({ lat: parseFloat(latitude), lng: parseFloat(longitude) });
   };
+  const handelChange=(e)=>{
+    setAddress(e.target.value)
+  }
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        setLongitude(longitude);
-        setLatitude(latitude);
-        getLatLngToAddress(latitude, longitude).then((address) => {
-          setAddress(address);
+    async function fetchData() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const { latitude, longitude } = position.coords;
+          setLongitude(longitude);
+          setLatitude(latitude);
+          onLocationSubmit({ lat: latitude, lng: longitude });
+          getLatLngToAddress(latitude, longitude).then((address) => {
+            setAddress(address);
+          });
+        }, (error) => {
+          console.error('Error fetching location:', error);
+          alert('Error fetching location:', error);
         });
-      }, (error) => {
-        console.error('Error fetching location:', error);
-      });
-    } else {
-      console.warn('Geolocation is not supported by this browser.');
+      } else {
+        console.warn('Geolocation is not supported by this browser.');
+      }
     }
+    fetchData();
   }, []);
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='flex justify-stretch items-center' onSubmit={handleSubmit}>
       <input
-      className='text-black'
+      className='text-black border p-2 rounded-3xl'
         type="text"
-        placeholder="Latitude"
+        placeholder="Address"
         value={address}
-        onChange={(e) => setAddress(e.target.value)}
+        onChange={(e) => {handelChange(e)}}
         required
       />
       
-      <button type="submit">Submit</button>
+      <button className='p-2 rounded-3xl border' type="submit">Submit</button>
     </form>
   );
 };

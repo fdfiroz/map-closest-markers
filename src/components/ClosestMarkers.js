@@ -10,15 +10,19 @@ const ClosestMarkers = ({ userLocation, locations }) => {
       ...location,
       distance: haversine(userLocation, { lat: location.latitude, lng: location.longitude })
     }));
-    distances.sort((a, b) => a.distance - b.distance);
-    setClosestMarkers(distances.slice(0, 5));
+    
+    const withinRange = distances.filter(location => location.distance <= 1000);
+    withinRange.sort((a, b) => a.distance - b.distance);
+    setClosestMarkers(withinRange.slice(0, 5));
   }, [userLocation, locations]);
 
   return (
     <ul>
-      {closestMarkers.map((marker) => (
-        <li key={marker.id}>{marker.name} - {marker.distance.toFixed(2)} meters</li>
-      ))}
+      {
+        closestMarkers.length > 0 ? closestMarkers.map((marker) => (
+          <li key={marker.id}>{marker.name} - {marker.distance.toFixed(2)} meters</li>
+        )) : <li>No markers found</li>
+      }
     </ul>
   );
 };

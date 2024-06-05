@@ -1,22 +1,24 @@
-function getAddressLatLng(address) {
-    const url = new URL('https://nominatim.openstreetmap.org/search');
-    url.searchParams.append('q', address);
-    url.searchParams.append('format', 'json');
-  
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        if (data && data.length > 0) {
-          const { lat, lon } = data[0];
-          return { latitude: lat, longitude: lng };
-        } else {
-          return null; // Handle empty results
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching geolocation:', error);
-        return null;
-      });
+async function getAddressLatLng(address) {
+  const apiKey = process.env.NEXT_PUBLIC_GEOAPI; // Replace with your OpenCage API key
+  const url = new URL('https://api.opencagedata.com/geocode/v1/json');
+  url.searchParams.append('q', address);
+  url.searchParams.append('key', apiKey);
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data.results && data.results.length > 0) {
+      const { lat, lng } = data.results[0].geometry;
+      return { latitude: lat, longitude: lng };
+    } else {
+      return null; // Handle empty results
+    }
+  } catch (error) {
+    console.error('Error fetching geolocation:', error);
+    return null;
   }
 
+  
+}
 export default getAddressLatLng;

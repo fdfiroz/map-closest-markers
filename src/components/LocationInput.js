@@ -9,12 +9,22 @@ const LocationInput = ({userLocation, onLocationSubmit }) => {
   const [address, setAddress] = useState('');
 
   useEffect(() => {
-    getLatLngToAddress(userLocation.lat, userLocation.lng)
-    .then((address) => {
-      console.log(address);
-      setAddress(address);
-    }
-    );
+    let isMounted = true;
+    const fetchData = async () => {
+      try {
+        const address = await getLatLngToAddress(userLocation.lat, userLocation.lng);
+        if (isMounted) {
+          console.log(address);
+          setAddress(address);
+        }
+      } catch (error) {
+        console.error('Error fetching address:', error);
+      }
+    };
+    fetchData();
+    return () => {
+      isMounted = false;
+    };
   }, [userLocation.lat, userLocation.lng]);
   const handleSubmit = (e) => {
     e.preventDefault();

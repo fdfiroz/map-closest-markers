@@ -12,7 +12,7 @@ async function getAddressLatLng(address) {
       const { lat, lng } = data.results[0].geometry;
       return { latitude: lat, longitude: lng };
     } else {
-      return null; // Handle empty results
+      return {}; // Handle empty results
     }
   } catch (error) {
     console.error('Error fetching geolocation:', error);

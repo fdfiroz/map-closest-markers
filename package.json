@@ -11,7 +11,7 @@
   "dependencies": {
     "haversine-distance": "^1.2.1",
     "leaflet": "^1.9.4",
-    "next": "14.2.3",
+    "next": "14.2.10",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
